@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PCR em tempo real · Laboratório virtual</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/app.js" defer></script>
+</head>
+<body>
+<main class="lab">
+<header><h1><canvas id="title" class="dot-title" width="720" height="65" aria-label="PCR em tempo real">PCR em tempo real</canvas></h1><button id="fullscreen" type="button" aria-pressed="false" hidden>Tela cheia</button></header>
+<section class="intro" id="intro" aria-labelledby="intro-title">
+<div><p class="kicker">LABORATÓRIO VIRTUAL</p><h2 id="intro-title">Do DNA <span>ao sinal</span></h2>
+<p>Acompanhe uma amostra com DNA da coleta até o gráfico. No fim, use as curvas para explicar o resultado.</p>
+<button id="start" type="button">Iniciar simulação ▶</button></div>
+<div class="intro-visual" aria-hidden="true"><canvas id="intro-art" width="460" height="460"></canvas></div>
+</section>
+<div id="game" hidden>
+<section class="screen" aria-label="Bancada interativa">
+<div class="scene">
+<div class="bench-head"><span id="scene-mode"></span><span id="scene-status"></span></div>
+<div class="stage"><canvas id="bench" width="720" height="405" role="img" aria-describedby="caption"></canvas>
+<button type="button" id="hotspot" tabindex="-1" hidden>＋</button></div>
+<p class="plot-labels" id="plot-labels" hidden>Horizontal: Ciclos · Vertical: Fluorescência</p>
+<p class="scene-caption" id="caption"></p></div>
+<aside><p class="kicker" id="kicker"></p><h2 id="heading" tabindex="-1"></h2><p id="phase-note" class="phase-note" hidden></p><p id="detail"></p><div id="choices" class="choices" hidden></div>
+<section id="prediction" aria-labelledby="prediction-question" hidden>
+<p id="prediction-question"><strong>Já dá para concluir que B está sem o alvo?</strong></p>
+<div class="choices"><button id="guess-yes" type="button" aria-pressed="false">Sim</button><button id="guess-no" type="button" aria-pressed="false">Ainda é cedo</button></div>
+<p id="prediction-feedback" role="status"></p>
+</section>
+<button id="action" type="button"></button><p id="feedback" role="status"></p></aside>
+</section>
+<nav class="controls" aria-label="Controles da simulação"><button type="button" id="back" class="back">◀ Voltar</button><div class="tools"><button type="button" id="replay" hidden>↻ Repetir animação</button><button type="button" id="reset">Reiniciar</button></div><button type="button" id="next" class="go">Avançar ▶</button></nav>
+<progress id="progress" max="6" value="1" aria-label="Capítulo atual"></progress>
+<nav class="chapters" id="chapters" aria-label="Capítulos"></nav>
+</div>
+<footer><details><summary>Sobre a simulação e fontes</summary><p>Simulação didática de qPCR a partir de DNA com amostras e curvas fictícias. O gráfico representa apenas o canal do alvo, com os demais controles previstos pelo ensaio considerados válidos no cenário. Os valores de Ct são exemplos para a aula.</p><p><a href="https://www.bio-rad.com/sites/default/files/2023-02/M1662605.pdf">Princípios de qPCR · Bio-Rad</a> · <a href="https://www.bio-rad.com/webroot/web/pdf/lsr/literature/Bulletin_2620.pdf">Sondas e fluorescência · Bio-Rad</a> · <a href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/guidance-documents/polymerase-chain-reaction-cycle-threshold-values-testing.html">Entendendo o Ct · Agência de Saúde Pública do Canadá</a></p></details></footer>
+</main>
+</body>
+</html>
